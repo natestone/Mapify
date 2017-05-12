@@ -673,8 +673,16 @@
         }
 
         // removeClass and addClass seems to fail on svg
-        this.svgMap.find('polygon').attr('class', 'mapify-polygon');
+        this.svgMap.find('polygon').each(function(index) {
+            // Remove classes without affecting selections
+            if(_this.svgMap.find('polygon:eq(' + index + ')')[0].classList.contains("mapify-selected")) {
+                $(_this.svgMap.find('polygon:eq(' + index + ')')[0]).attr('class', 'mapify-polygon mapify-selected')
+            }
+            else {
+                $(_this.svgMap.find('polygon:eq(' + index + ')')[0]).attr('class', 'mapify-polygon')
+            }
 
+        })
         // if event is assigned, call the handler
         if (this.options.onMapClear) {
             this.options.onMapClear(this);

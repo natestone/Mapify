@@ -79,6 +79,3 @@ Group multiple areas together
 }
 ```
 
-## Examples
-
-See http://etiennemartin.ca/mapify/ for live examples.

@@ -2,6 +2,8 @@ module.exports = function(grunt){
 
 	require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
+    grunt.loadNpmTasks('grunt-contrib-sass');
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 		concat: {
